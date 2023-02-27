@@ -5,9 +5,11 @@
 
 FROM alpine:latest
 
-RUN python3 -m ensurepip
 RUN apk --no-cache add python py-lxml \
 	&& rm -rf /var/cache/apk/* 
+
+RUN python3 -m ensurepip
+
 ADD dsvw.py /dsvw.py
 
 EXPOSE 8000
